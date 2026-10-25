@@ -122,7 +122,7 @@ app.post('/api/decompose', async (req: Request, res: Response) => {
     });
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3.1-flash-lite',
+      model: 'gemini-3.8-flash',
       contents: promptText,
       config: {
         responseMimeType: 'application/json',

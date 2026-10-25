@@ -8,17 +8,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added - "Build With AI: Basics" Devpost Hackathon Enhancements
 - **Devpost Planning Pack Generator (`scope.md`, `prd.md`, `spec.md`)**:
-  - Implemented `HackathonPackModal.tsx` and `src/lib/devpostExporter.ts` to auto-generate the 3 planning documents required by the Devpost Learn Skill Pack.
-  - Added multi-tab markdown preview, single-file clipboard copy, individual file download, and 1-click "Download All 3 Files" in `ExportBar.tsx`.
+  - Implemented `HackathonPackModal.tsx` and `src/lib/devpostExporter.ts` to auto-generate the 3 planning documents required by the Devpost Learn Skill Pack directly from the Agile decomposition results.
+  - Added multi-tab markdown viewer, single-file clipboard copy, individual file download, and a 1-click "Download All 3 Files" in `ExportBar.tsx`.
 - **Agent Slice Prompts with Negative Constraints (Anti-Hallucination Guardrails)**:
-  - Added 1-click "Agent Prompt" export on every story card via `src/lib/agentPromptGenerator.ts` for Claude Code, Cursor Composer, and Codex.
+  - Added 1-click "Agent Prompt" export on every story card via `src/lib/agentPromptGenerator.ts` tailored for Claude Code, Cursor Composer, GitHub Copilot, and Codex.
   - Formatted prompts with task boundaries, prerequisite locks, Gherkin verification steps, and strict negative constraints (*"DO NOT rewrite existing working files", "DO NOT break existing API contracts"*).
-  - Added expandable in-card prompt drawer to preview prompt contents directly.
+  - Added expandable in-card prompt drawer in `StoryCard.tsx` to preview prompt contents directly.
 - **Syntax-Highlighted Gherkin Criteria & Interactive Verification Checklist**:
-  - Built `GherkinCriterion.tsx` featuring high-contrast colored keyword badges (`GIVEN` in cyan, `WHEN` in indigo, `THEN` in emerald, `AND` in zinc).
+  - Built `GherkinCriterion.tsx` featuring high-contrast colored keyword badges (`GIVEN` in cyan, `WHEN` in indigo, `THEN` in emerald, and `AND` in zinc).
   - Added interactive checkboxes on every acceptance criterion to mark criteria as verified during testing.
   - Added dynamic verification progress badge on story card headers (e.g., `2/3 Verified` and `All Criteria Verified`).
-- **Workspace Feature Pillars**: Updated `EmptyPlaceholder.tsx` highlighting Gherkin verification, AI agent prompts, and the Devpost Hackathon Pack.
+- **Header Status Badge Alignment**:
+  - Updated `Header.tsx` status indicator to display active `Gemini 3.8 Flash` connectivity matching the engine model.
+- **Backend Model Alignment**:
+  - Updated `/api/decompose` endpoint in `server.ts` to call `gemini-3.8-flash`.
+- **Workspace Feature Pillars**:
+  - Updated `EmptyPlaceholder.tsx` highlighting Gherkin verification, AI coding agent prompts, and the Devpost Hackathon Pack.
+- **Application Wiring**:
+  - Passed feature prompt context through `App.tsx` into `ExportBar.tsx` to enrich generated planning doc headers.
 
 ---
 

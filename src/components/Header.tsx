@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5 text-xs text-emerald-400 border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 rounded-md shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-            <span className="font-medium">Gemini AI Ready</span>
+            <span className="font-medium font-mono">Gemini 3.8 Flash</span>
           </div>
         </div>
       </div>
